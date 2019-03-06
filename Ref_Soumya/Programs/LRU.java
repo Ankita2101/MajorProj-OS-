@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package lru;
 
 /**
  *
@@ -97,10 +98,10 @@ public class LRU {
         }
         
         System.out.println("The number of Hits: " + hit);
-        System.out.println("Hit Ratio: " + (float)((float)hit/ref_len));
+        System.out.println("Hit Ratio: " + (float)((float)hit/ref_len)*100);
         System.out.println("The number of Faults: " + fault);
+        System.out.println("Fault Ratio: " + (float)((float)fault/ref_len)*100);
     }
     
 }
-    
-
+   
