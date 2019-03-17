@@ -1,32 +1,67 @@
 #crd1
 {
-    height: 50%;
-    width:5%;
+    height: 40%;
+    width:18%;
     margin: 1%;
 }
-    
 #crd2
 {
-    height: 50%;
-    width:5%;
+    height: 40%;
+    width:18%;
     margin: 1%;
-}
-    #crd3
-{
-    height: 50%;
-    width:5%;
-    margin: 1%;
-}
-    #crd4
-{
-    height: 50%;
-    width:5%;
-    margin: 1%;
-}
-    #crd5
-{
-    height: 50%;
-    width:5%;
-    margin: 1%;
-}
     
+}
+#crd3
+{
+    height: 40%;
+    width:18%;
+    margin: 1%;
+}
+#crd4
+{
+    height: 40%;
+    width:18%;
+    margin: 1%;
+}
+#crd5
+{
+    height: 40%;
+    width:18%;
+    margin: 1%;
+}
+#crd11
+{
+    height: 40%;
+    width:8%;
+    margin: 1%;
+}
+#crd22
+{
+    height: 40%;
+    width:8%;
+    margin: 1%;
+    
+}
+#crd33
+{
+    height: 40%;
+    width:8%;
+    margin: 1%;
+}
+#crd44
+{
+    height: 40%;
+    width:8%;
+    margin: 1%;
+}
+#crd55
+{
+    height: 40%;
+    width:8%;
+    margin: 1%;
+}
+img
+{
+    height: 100%;
+    width:100%;
+}
