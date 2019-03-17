@@ -7,13 +7,19 @@ package vinaya_os;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.File;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
+import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
 
 /**
  *
@@ -31,6 +37,7 @@ public class Process_Scheduling extends javax.swing.JFrame {
     static final int SCREEN_WIDTH=1500,SCREEN_HEIGHT=900;
     static final int rectangleUpperPadding=100,rectangleHeight=100;
     static Process_Scheduling obj;
+    Label label;
     
     public Process_Scheduling() {
         initComponents();
@@ -59,6 +66,7 @@ public class Process_Scheduling extends javax.swing.JFrame {
         Minimize = new javax.swing.JLabel();
         Restore = new javax.swing.JLabel();
         Close = new javax.swing.JLabel();
+        Save = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         Number_Panel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -135,6 +143,17 @@ public class Process_Scheduling extends javax.swing.JFrame {
             }
         });
         jPanel2.add(Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(1445, 0, 40, 40));
+
+        Save.setBackground(new java.awt.Color(255, 255, 255));
+        Save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Save_32px.png"))); // NOI18N
+        Save.setOpaque(true);
+        Save.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SaveMouseClicked(evt);
+            }
+        });
+        jPanel2.add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 40));
 
@@ -399,24 +418,31 @@ public class Process_Scheduling extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        n=Integer.parseInt(num.getText());
-        CPUBurstTime=new int[n];
-        arrivalTime=new int[n];
-        priority=new int[n];
-        wt= new int[n];
-        ta= new int[n];
-        p= new int[n];
-        c=new int[n];
-        i=0;
-        processnum.setText("P0");
-        jButton8.setEnabled(true);
-        jButton7.setEnabled(false);
+        try{
+            n=Integer.parseInt(num.getText());
+            CPUBurstTime=new int[n];
+            arrivalTime=new int[n];
+            priority=new int[n];
+            wt= new int[n];
+            ta= new int[n];
+            p= new int[n];
+            c=new int[n];
+            i=0;
+            processnum.setText("P0");
+            jButton8.setEnabled(true);
+            jButton7.setEnabled(false);
+        }
+        catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog (null, "Error in number format: Reenter the number");
+            num.setText("");
+        }        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        if (!arrival.getText().equals("") && !burst.getText().equals("") && !prio.getText().equals("") )
-        {
+        try{
+            if (!arrival.getText().equals("") && !burst.getText().equals("") && !prio.getText().equals("") )
+            {
             if(i<=n-1)
             {
                 p[i]=i;
@@ -445,7 +471,14 @@ public class Process_Scheduling extends javax.swing.JFrame {
                     jCheckBox4.setEnabled(true);
                 }
             }
-        }
+        }}
+        catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog (null, "Error in number format: Reenter the number");
+                processnum.setText("P"+i);
+                    burst.setText("");
+                    arrival.setText("");
+                    prio.setText("");
+                }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -812,6 +845,9 @@ public class Process_Scheduling extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        Vinaya_Home ob=new Vinaya_Home();
+        ob.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -838,6 +874,33 @@ public class Process_Scheduling extends javax.swing.JFrame {
             jCheckBox4.setEnabled(false);
         }
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveMouseClicked
+        // TODO add your handling code here:
+        JFileChooser jf=new JFileChooser();
+            jf.setDialogTitle("Save");
+            jf.showSaveDialog(null);
+            
+                
+        WritableWorkbook wworkbook = null;
+            try {
+                  wworkbook = Workbook.createWorkbook(new File(jf.getSelectedFile().toString()));
+                  WritableSheet wsheet = wworkbook.createSheet("Scheduling Sheet", 0);
+                  for (int i=0;i<model.getRowCount();i++)
+                  {
+                      for (int j=0;j<model.getColumnCount();j++)
+                      {
+                          label = new Label(j, i,model.getValueAt(i,j).toString());
+                          wsheet.addCell(label);
+                      }
+                  }
+                  wworkbook.write();
+                  wworkbook.close();
+            }
+            catch (Exception e) {
+            System.out.println(e);
+			} 
+    }//GEN-LAST:event_SaveMouseClicked
 
     public void FCFS_Gantt()
     {
@@ -939,6 +1002,7 @@ public class Process_Scheduling extends javax.swing.JFrame {
     private javax.swing.JLabel Minimize;
     private javax.swing.JPanel Number_Panel;
     private javax.swing.JLabel Restore;
+    private javax.swing.JLabel Save;
     private javax.swing.JPanel Schedule_Panel;
     private javax.swing.JPanel TQ_Panel;
     private javax.swing.JPanel View_Panel;

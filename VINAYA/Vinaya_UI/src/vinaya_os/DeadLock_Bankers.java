@@ -6,7 +6,14 @@
 package vinaya_os;
 
 import java.awt.Frame;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
 /**
  *
  * @author Ankita Singh
@@ -18,7 +25,7 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
     static int available[][];
     static int allocation[][];
     static int np,nr,i,j;
-
+    Label label;
     /**
      * Creates new form DeadLock_Bankers
      */
@@ -50,6 +57,7 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
         Minimize = new javax.swing.JLabel();
         Restore = new javax.swing.JLabel();
         Close = new javax.swing.JLabel();
+        Save = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -88,7 +96,6 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
@@ -131,6 +138,17 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
             }
         });
         jPanel2.add(Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(1445, 0, 40, 40));
+
+        Save.setBackground(new java.awt.Color(255, 255, 255));
+        Save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Save_32px.png"))); // NOI18N
+        Save.setOpaque(true);
+        Save.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SaveMouseClicked(evt);
+            }
+        });
+        jPanel2.add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 40));
 
@@ -408,11 +426,6 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
-        jButton1.setText("Simulate");
-        jButton1.setEnabled(false);
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 10, -1, -1));
-
         jButton2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jButton2.setText("Reset");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -420,7 +433,7 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 10, 120, -1));
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 10, 120, -1));
 
         jButton3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jButton3.setText("Back");
@@ -466,6 +479,7 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        try{
         np=Integer.parseInt(process_num.getText());
         nr=Integer.parseInt(res_num.getText());
         max=new int[np][nr];
@@ -480,6 +494,14 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
         model4.setRowCount(np);
         model3.setColumnCount(nr);
         model3.setRowCount(1);
+        }
+        catch(NumberFormatException ex)
+        {
+            JOptionPane.showMessageDialog (null, "Error in number format: Reenter the number");
+            process_num.setText("");
+            res_num.setText("");
+        }
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -504,6 +526,7 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        try{
         for(int i=0;i<np;i++){
 
             for(int j=0;j<nr;j++){
@@ -517,9 +540,14 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
         for( i=0;i<nr;i++){
 
             available[0][i]=Integer.parseInt(avail_mat.getValueAt(0, i).toString());
-            System.out.println(available[0][i]);
         }
+        }
+        catch(NumberFormatException ex)
+        {
+            JOptionPane.showMessageDialog (null, "Error in number format: Reenter the number or Try Reset");
 
+        }
+        
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -527,7 +555,7 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
         int c=0;
 
         boolean status[]=new boolean[np];
-        System.out.println(status[0]);
+        
         while(c<np){
 
             boolean allocated=false;
@@ -542,7 +570,7 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
 
                     c++;
 
-                    System.out.println("Allocated process : "+i);
+                    
                     jTextArea1.setText(jTextArea1.getText()+"Allocated process : "+i+"\n");
                     for( j=0;j<nr;j++){
 
@@ -560,12 +588,12 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
 
         if(c==np) //if all processes are allocated
         {
-            System.out.println("\nSafely allocated");
+           
             jTextArea2.setText("Safely Allocated...");
         }
         else
         {
-            System.out.println("All proceess cant be allocated safely");
+            
             jTextArea2.setText("All processes cant be allocated safely...");
         }
     }//GEN-LAST:event_jButton9ActionPerformed
@@ -588,7 +616,37 @@ public boolean check(int p)
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        Vinaya_Home ob=new Vinaya_Home();
+        ob.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveMouseClicked
+        // TODO add your handling code here:
+        JFileChooser jf=new JFileChooser();
+            jf.setDialogTitle("Save");
+            jf.showSaveDialog(null);
+            
+                
+        WritableWorkbook wworkbook = null;
+            try {
+                  wworkbook = Workbook.createWorkbook(new File(jf.getSelectedFile().toString()));
+                  WritableSheet wsheet = wworkbook.createSheet("Need Matrix Sheet", 0);
+                  for (int i=0;i<model4.getRowCount();i++)
+                  {
+                      for (int j=0;j<model4.getColumnCount();j++)
+                      {
+                          label = new Label(j, i,model4.getValueAt(i,j).toString());
+                          wsheet.addCell(label);
+                      }
+                  }
+                  wworkbook.write();
+                  wworkbook.close();
+            }
+            catch (Exception e) {
+            System.out.println(e);
+			} 
+    }//GEN-LAST:event_SaveMouseClicked
 
     /**
      * @param args the command line arguments
@@ -629,9 +687,9 @@ public boolean check(int p)
     private javax.swing.JLabel Close;
     private javax.swing.JLabel Minimize;
     private javax.swing.JLabel Restore;
+    private javax.swing.JLabel Save;
     private javax.swing.JTable avail_mat;
     private javax.swing.JLabel avail_matrix;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

@@ -9,6 +9,7 @@ import java.awt.Frame;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 /**
  *
@@ -242,7 +243,7 @@ public class Process_Synchronization extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
-        jButton2.setText("Consume");
+        jButton2.setText("Reset");
         jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 10, 170, 50));
 
         jButton5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
@@ -287,6 +288,7 @@ public class Process_Synchronization extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        try{
         size=Integer.parseInt(item_num.getText());
         model1.setColumnCount(size);
         model1.setRowCount(1);
@@ -295,10 +297,18 @@ public class Process_Synchronization extends javax.swing.JFrame {
         model3.setColumnCount(size);
         model3.setRowCount(1);
         jButton4.setEnabled(false);
+        }
+        catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog (null, "Error in number format: Reenter the number");
+            item_num.setText("");
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        Vinaya_Home ob=new Vinaya_Home();
+        ob.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

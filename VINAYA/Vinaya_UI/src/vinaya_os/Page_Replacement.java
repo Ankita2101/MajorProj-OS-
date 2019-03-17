@@ -5,8 +5,15 @@
  */
 package vinaya_os;
 import java.awt.Frame;
+import java.io.File;
 import java.util.ArrayList;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
 
 /**
  *
@@ -20,7 +27,7 @@ public class Page_Replacement extends javax.swing.JFrame {
     ArrayList<Integer> stack = new ArrayList<>();
     int reference[];
     int mem_layout[][];
-
+    Label label;
     /**
      * Creates new form Page_Replacement
      */
@@ -30,6 +37,7 @@ public class Page_Replacement extends javax.swing.JFrame {
         model2 = new DefaultTableModel();
         Page_Table.setModel(model1);
         Frame_Table.setModel(model2);
+        
     }
 
     /**
@@ -45,6 +53,7 @@ public class Page_Replacement extends javax.swing.JFrame {
         Minimize = new javax.swing.JLabel();
         Restore = new javax.swing.JLabel();
         Close = new javax.swing.JLabel();
+        Save = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -61,6 +70,7 @@ public class Page_Replacement extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Frame_Table = new javax.swing.JTable();
@@ -110,7 +120,18 @@ public class Page_Replacement extends javax.swing.JFrame {
                 CloseMouseClicked(evt);
             }
         });
-        jPanel2.add(Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(1445, 0, 40, 40));
+        jPanel2.add(Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 0, 40, 40));
+
+        Save.setBackground(new java.awt.Color(255, 255, 255));
+        Save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Save_32px.png"))); // NOI18N
+        Save.setOpaque(true);
+        Save.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SaveMouseClicked(evt);
+            }
+        });
+        jPanel2.add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 40));
 
@@ -136,7 +157,7 @@ public class Page_Replacement extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 130, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 130, 40));
 
         jTextField1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 150, 40));
@@ -192,8 +213,22 @@ public class Page_Replacement extends javax.swing.JFrame {
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 526, 380, 310));
 
         jButton4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
-        jButton4.setText("RESET");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 130, 40));
+        jButton4.setText("BACK");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 120, 40));
+
+        jButton5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
+        jButton5.setText("RESET");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 130, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 430, 860));
 
@@ -224,6 +259,7 @@ public class Page_Replacement extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        Frame_Table.setEnabled(false);
         Frame_Table.setRowHeight(40);
         Frame_Table.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(Frame_Table);
@@ -254,6 +290,7 @@ public class Page_Replacement extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        Page_Table.setEnabled(false);
         Page_Table.setRowHeight(40);
         Page_Table.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(Page_Table);
@@ -274,6 +311,7 @@ public class Page_Replacement extends javax.swing.JFrame {
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextArea2.setEditable(false);
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 18)); // NOI18N
         jTextArea2.setRows(5);
@@ -350,7 +388,7 @@ public class Page_Replacement extends javax.swing.JFrame {
         
         for(int i = 0; i < frames; i++)
         {
-            for(int j = 0; j < ref_len; j++){
+            for(int j = 0; j < ref_len; j++){              
                 model2.setValueAt(mem_layout[j][i], i, j);
             }
         }
@@ -501,6 +539,7 @@ public class Page_Replacement extends javax.swing.JFrame {
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        try{
         if(!jTextField3.getText().equals(""))
         {
             if (i<=ref_len-1)
@@ -515,12 +554,17 @@ public class Page_Replacement extends javax.swing.JFrame {
                 else
                 jButton2.setEnabled(false);
             }
-
+        }}
+        catch(NumberFormatException ex)
+        {
+            JOptionPane.showMessageDialog (null, "Error in number format: Reenter the number");
+            jTextField3.setText("");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        try{
         ref_len=Integer.parseInt(jTextField2.getText());
         frames=Integer.parseInt(jTextField1.getText());
         model1.setColumnCount(ref_len);
@@ -531,9 +575,53 @@ public class Page_Replacement extends javax.swing.JFrame {
         mem_layout = new int[ref_len][frames];
         buffer = new int[frames];
         for(int j = 0; j < frames; j++)
-        buffer[j] = -1;
+            buffer[j] = -1;
         i=0;
+        }
+        catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog (null, "Error in number format: Reenter the number");
+            jTextField2.setText("");
+            jTextField1.setText("");
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveMouseClicked
+        // TODO add your handling code here:
+        JFileChooser jf=new JFileChooser();
+            jf.setDialogTitle("Save");
+            jf.showSaveDialog(null);
+            
+                
+        WritableWorkbook wworkbook = null;
+            try {
+                  wworkbook = Workbook.createWorkbook(new File(jf.getSelectedFile().toString()));
+                  WritableSheet wsheet = wworkbook.createSheet("Frame Sheet", 0);
+                  for (int i=0;i<model2.getRowCount();i++)
+                  {
+                      for (int j=0;j<model2.getColumnCount();j++)
+                      {
+                          label = new Label(j, i,model2.getValueAt(i,j).toString());
+                          wsheet.addCell(label);
+                      }
+                  }
+                  wworkbook.write();
+                  wworkbook.close();
+            }
+            catch (Exception e) {
+            System.out.println(e);
+			}  
+    }//GEN-LAST:event_SaveMouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        Vinaya_Home ob=new Vinaya_Home();
+        ob.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -576,10 +664,12 @@ public class Page_Replacement extends javax.swing.JFrame {
     private javax.swing.JLabel Minimize;
     private javax.swing.JTable Page_Table;
     private javax.swing.JLabel Restore;
+    private javax.swing.JLabel Save;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;

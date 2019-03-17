@@ -97,7 +97,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setBackground(new java.awt.Color(232, 232, 232));
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Process Scheduling");
@@ -111,7 +111,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setBackground(new java.awt.Color(232, 232, 232));
         jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Deadlock");
@@ -125,7 +125,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setBackground(new java.awt.Color(232, 232, 232));
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Page Replacement");
@@ -139,7 +139,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setBackground(new java.awt.Color(232, 232, 232));
         jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Process Synchronization");
@@ -153,7 +153,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setBackground(new java.awt.Color(232, 232, 232));
         jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Process Creation");
@@ -173,7 +173,6 @@ public class Vinaya_Home extends javax.swing.JFrame {
         jLabel6.setText("Choose...");
         jLabel6.setMaximumSize(new java.awt.Dimension(450, 350));
         jLabel6.setMinimumSize(new java.awt.Dimension(450, 350));
-        jLabel6.setOpaque(true);
         jLabel6.setPreferredSize(new java.awt.Dimension(450, 350));
 
         javax.swing.GroupLayout LandingPanelLayout = new javax.swing.GroupLayout(LandingPanel);
@@ -195,7 +194,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(60, 60, 60))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LandingPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(1295, Short.MAX_VALUE)
                 .addComponent(Minimize, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Restore, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -306,7 +305,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
-        VinayaProcessSynch obj=new VinayaProcessSynch();
+        Vinaya_ProcessSynch obj=new Vinaya_ProcessSynch();
         obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel4MouseClicked

@@ -32,7 +32,7 @@ public class Vinaya_LaunchPage extends javax.swing.JFrame {
                 dispose();
             }
         };
-        timer = new Timer(5000, action);
+        timer = new Timer(2000, action);
         timer.start();
     }
     
