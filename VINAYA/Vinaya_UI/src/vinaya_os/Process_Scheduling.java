@@ -37,7 +37,7 @@ public class Process_Scheduling extends javax.swing.JFrame {
     static final int SCREEN_WIDTH=1500,SCREEN_HEIGHT=900;
     static final int rectangleUpperPadding=100,rectangleHeight=100;
     static Process_Scheduling obj;
-    Label label;
+    
     
     public Process_Scheduling() {
         initComponents();
@@ -66,7 +66,6 @@ public class Process_Scheduling extends javax.swing.JFrame {
         Minimize = new javax.swing.JLabel();
         Restore = new javax.swing.JLabel();
         Close = new javax.swing.JLabel();
-        Save = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         Number_Panel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -143,17 +142,6 @@ public class Process_Scheduling extends javax.swing.JFrame {
             }
         });
         jPanel2.add(Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(1445, 0, 40, 40));
-
-        Save.setBackground(new java.awt.Color(255, 255, 255));
-        Save.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Save_32px.png"))); // NOI18N
-        Save.setOpaque(true);
-        Save.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SaveMouseClicked(evt);
-            }
-        });
-        jPanel2.add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 40));
 
@@ -347,20 +335,13 @@ public class Process_Scheduling extends javax.swing.JFrame {
             new String [] {
                 "Process Num", "Priority", "Arrival Time", "Burst Time"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                true, true, false, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jTable1.setCellSelectionEnabled(true);
         jTable1.setEnabled(false);
         jTable1.setRowHeight(48);
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         Detaile_Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 890, 600));
 
@@ -875,33 +856,6 @@ public class Process_Scheduling extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
-    private void SaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveMouseClicked
-        // TODO add your handling code here:
-        JFileChooser jf=new JFileChooser();
-            jf.setDialogTitle("Save");
-            jf.showSaveDialog(null);
-            
-                
-        WritableWorkbook wworkbook = null;
-            try {
-                  wworkbook = Workbook.createWorkbook(new File(jf.getSelectedFile().toString()));
-                  WritableSheet wsheet = wworkbook.createSheet("Scheduling Sheet", 0);
-                  for (int i=0;i<model.getRowCount();i++)
-                  {
-                      for (int j=0;j<model.getColumnCount();j++)
-                      {
-                          label = new Label(j, i,model.getValueAt(i,j).toString());
-                          wsheet.addCell(label);
-                      }
-                  }
-                  wworkbook.write();
-                  wworkbook.close();
-            }
-            catch (Exception e) {
-            System.out.println(e);
-			} 
-    }//GEN-LAST:event_SaveMouseClicked
-
     public void FCFS_Gantt()
     {
         sumCPUBurstTime=0;
@@ -1002,7 +956,6 @@ public class Process_Scheduling extends javax.swing.JFrame {
     private javax.swing.JLabel Minimize;
     private javax.swing.JPanel Number_Panel;
     private javax.swing.JLabel Restore;
-    private javax.swing.JLabel Save;
     private javax.swing.JPanel Schedule_Panel;
     private javax.swing.JPanel TQ_Panel;
     private javax.swing.JPanel View_Panel;
@@ -1033,7 +986,7 @@ public class Process_Scheduling extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
-    private javax.swing.JTable jTable1;
+    private static javax.swing.JTable jTable1;
     private javax.swing.JTextField num;
     private javax.swing.JTextField prio;
     private javax.swing.JTextField processnum;

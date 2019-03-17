@@ -9,10 +9,10 @@ import java.awt.Frame;
  *
  * @author Ankita Singh
  */
-public class Vinaya_ProcessCreation extends javax.swing.JFrame {
-    int xx,xy;
+public class Vinaya_ProcessCreate extends javax.swing.JFrame {
+
     
-    public Vinaya_ProcessCreation() {
+    public Vinaya_ProcessCreate() {
         initComponents();
     }
 
@@ -25,7 +25,6 @@ public class Vinaya_ProcessCreation extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        MainPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         Minimize = new javax.swing.JLabel();
         Restore = new javax.swing.JLabel();
@@ -48,21 +47,6 @@ public class Vinaya_ProcessCreation extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        MainPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                MainPanelMouseDragged(evt);
-            }
-        });
-        MainPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                MainPanelMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                MainPanelMouseReleased(evt);
-            }
-        });
-        MainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(243, 243, 243));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -97,7 +81,7 @@ public class Vinaya_ProcessCreation extends javax.swing.JFrame {
         });
         jPanel1.add(Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(1445, 0, 40, 40));
 
-        MainPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 40));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 40));
 
         jPanel2.setBackground(new java.awt.Color(52, 83, 117));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,7 +137,7 @@ public class Vinaya_ProcessCreation extends javax.swing.JFrame {
         jLabel7.setText(" Deadlock");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 330, 50));
 
-        MainPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 330, 760));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 330, 760));
 
         jPanel3.setBackground(new java.awt.Color(72, 153, 207));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -163,7 +147,7 @@ public class Vinaya_ProcessCreation extends javax.swing.JFrame {
         jLabel8.setText("PROCESS CREATION");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 630, 80));
 
-        MainPanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 1170, 170));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 1170, 170));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -182,34 +166,18 @@ public class Vinaya_ProcessCreation extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
         jButton1.setText("START");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 240, 50));
 
-        MainPanel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 1170, 590));
-
-        getContentPane().add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1500, 800));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 1170, 590));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void MainPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MainPanelMouseDragged
-        // TODO add your handling code here:
-        int x=evt.getXOnScreen();
-        int y=evt.getYOnScreen();
-        this.setLocation(x-xx, y-xy);
-    }//GEN-LAST:event_MainPanelMouseDragged
-
-    private void MainPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MainPanelMousePressed
-        // TODO add your handling code here:
-        setOpacity(0.8f);
-        xx=evt.getX();
-        xy=evt.getY();
-    }//GEN-LAST:event_MainPanelMousePressed
-
-    private void MainPanelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MainPanelMouseReleased
-        // TODO add your handling code here:
-        setOpacity(1.0f);
-    }//GEN-LAST:event_MainPanelMouseReleased
 
     private void MinimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizeMouseClicked
         // TODO add your handling code here:
@@ -234,6 +202,13 @@ public class Vinaya_ProcessCreation extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Process_Creation obj =new Process_Creation();
+        obj.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -251,27 +226,26 @@ public class Vinaya_ProcessCreation extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vinaya_ModuleSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vinaya_ProcessCreate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vinaya_ModuleSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vinaya_ProcessCreate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vinaya_ModuleSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vinaya_ProcessCreate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vinaya_ModuleSelection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Vinaya_ProcessCreate.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Vinaya_ProcessCreation().setVisible(true);
+                new Vinaya_ProcessCreate().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Close;
-    private javax.swing.JPanel MainPanel;
     private javax.swing.JLabel Minimize;
     private javax.swing.JLabel Restore;
     private javax.swing.JButton jButton1;

@@ -60,6 +60,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
                 LandingPanelMouseReleased(evt);
             }
         });
+        LandingPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Close.setBackground(new java.awt.Color(255, 255, 255));
         Close.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -69,6 +70,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
                 CloseMouseClicked(evt);
             }
         });
+        LandingPanel.add(Close, new org.netbeans.lib.awtextra.AbsoluteConstraints(1445, 0, 40, 40));
 
         Maximize.setBackground(new java.awt.Color(255, 255, 255));
         Maximize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -78,6 +80,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
                 MaximizeMouseClicked(evt);
             }
         });
+        LandingPanel.add(Maximize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1396, 0, 40, 40));
 
         Restore.setBackground(new java.awt.Color(255, 255, 255));
         Restore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -87,6 +90,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
                 RestoreMouseClicked(evt);
             }
         });
+        LandingPanel.add(Restore, new org.netbeans.lib.awtextra.AbsoluteConstraints(1347, 0, 40, 40));
 
         Minimize.setBackground(new java.awt.Color(255, 255, 255));
         Minimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -96,6 +100,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
                 MinimizeMouseClicked(evt);
             }
         });
+        LandingPanel.add(Minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1298, 0, 40, 40));
 
         jLabel1.setBackground(new java.awt.Color(232, 232, 232));
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
@@ -110,6 +115,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
+        LandingPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 454, 389));
 
         jLabel2.setBackground(new java.awt.Color(232, 232, 232));
         jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
@@ -124,6 +130,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
                 jLabel2MouseClicked(evt);
             }
         });
+        LandingPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 438, 454, 390));
 
         jLabel3.setBackground(new java.awt.Color(232, 232, 232));
         jLabel3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
@@ -138,6 +145,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
                 jLabel3MouseClicked(evt);
             }
         });
+        LandingPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(986, 438, 454, 390));
 
         jLabel4.setBackground(new java.awt.Color(232, 232, 232));
         jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
@@ -152,6 +160,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
                 jLabel4MouseClicked(evt);
             }
         });
+        LandingPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(986, 40, 454, 389));
 
         jLabel5.setBackground(new java.awt.Color(232, 232, 232));
         jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
@@ -166,6 +175,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
+        LandingPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 460, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Segoe UI Semilight", 0, 36)); // NOI18N
@@ -174,63 +184,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
         jLabel6.setMaximumSize(new java.awt.Dimension(450, 350));
         jLabel6.setMinimumSize(new java.awt.Dimension(450, 350));
         jLabel6.setPreferredSize(new java.awt.Dimension(450, 350));
-
-        javax.swing.GroupLayout LandingPanelLayout = new javax.swing.GroupLayout(LandingPanel);
-        LandingPanel.setLayout(LandingPanelLayout);
-        LandingPanelLayout.setHorizontalGroup(
-            LandingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LandingPanelLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(LandingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(LandingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(LandingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(60, 60, 60))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LandingPanelLayout.createSequentialGroup()
-                .addContainerGap(1295, Short.MAX_VALUE)
-                .addComponent(Minimize, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Restore, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Maximize, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Close, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        LandingPanelLayout.setVerticalGroup(
-            LandingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LandingPanelLayout.createSequentialGroup()
-                .addGroup(LandingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Close, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Maximize, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Restore, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Minimize, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
-                .addGroup(LandingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LandingPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(133, 133, 133)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(241, 241, 241))
-                    .addGroup(LandingPanelLayout.createSequentialGroup()
-                        .addGroup(LandingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(LandingPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(LandingPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addContainerGap())))
-        );
+        LandingPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(523, 40, 454, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -291,7 +245,7 @@ public class Vinaya_Home extends javax.swing.JFrame {
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
-        Vinaya_ProcessCreation obj=new Vinaya_ProcessCreation();
+        Vinaya_ProcessCreate obj=new Vinaya_ProcessCreate();
         obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel5MouseClicked

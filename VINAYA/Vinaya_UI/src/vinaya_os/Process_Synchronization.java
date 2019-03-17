@@ -70,7 +70,6 @@ public class Process_Synchronization extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         Consumer_table = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
@@ -241,10 +240,6 @@ public class Process_Synchronization extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 1050, 790));
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
-        jButton2.setText("Reset");
-        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1320, 10, 170, 50));
 
         jButton5.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jButton5.setText("Back");
@@ -435,7 +430,6 @@ public class Process_Synchronization extends javax.swing.JFrame {
     private javax.swing.JTable Producer_table;
     private javax.swing.JLabel Restore;
     private javax.swing.JTextField item_num;
-    public javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

@@ -16,6 +16,8 @@ public class Vinaya_UI {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Vinaya_LaunchPage ob=new Vinaya_LaunchPage();
+        ob.setVisible(true);
     }
     
 }

@@ -187,6 +187,7 @@ public class Process_Creation extends javax.swing.JFrame {
             catch (Exception ex)  
         { 
             JOptionPane.showMessageDialog (null, "Cannot find specified file"); 
+            jTextField1.setText("");
             jTextArea1.setText("");
             jButton1.setEnabled(false);
         } 

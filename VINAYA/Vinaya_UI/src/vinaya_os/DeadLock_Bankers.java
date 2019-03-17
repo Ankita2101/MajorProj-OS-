@@ -73,7 +73,6 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -96,7 +95,6 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -250,10 +248,6 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 600, 110, 40));
-
-        jButton10.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
-        jButton10.setText("View");
-        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 660, 110, 40));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
@@ -425,15 +419,6 @@ public class DeadLock_Bankers extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
-        jButton2.setText("Reset");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 10, 120, -1));
 
         jButton3.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jButton3.setText("Back");
@@ -610,10 +595,6 @@ public boolean check(int p)
     return true;
 }
     
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Vinaya_Home ob=new Vinaya_Home();
@@ -690,8 +671,6 @@ public boolean check(int p)
     private javax.swing.JLabel Save;
     private javax.swing.JTable avail_mat;
     private javax.swing.JLabel avail_matrix;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
